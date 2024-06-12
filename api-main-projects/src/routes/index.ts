@@ -9,8 +9,6 @@ const router = Router()
 router.get('/server_status', serverController);
 
 app.use('/public', publicRoutes)
-// app.use('/gateway', gatewayRoutes );
-//app.use('/api', apiRoutes );
 app.use('/', router)
 
 export default app

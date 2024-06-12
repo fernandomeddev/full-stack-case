@@ -3,19 +3,14 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookies from "cookie-parser";
 import helmet from "helmet";
-
 import dotenv from "dotenv";
-// import { errorHandler } from '../middlewares/errorHandler';
-// import { rateLimiter } from '../../middlewares/rateLimiter';
 import { CacheManager } from '../interfaces/ICacheManager';
 import cacheHandler from '../utils/cacheHandler';
 dotenv.config();
 
-export const dbName = process.env.MONGO_DB || "db_tools";
 export const USE_MOCK = process.env.USE_MOCK || false;
 export const MOCK_FOLDER = process.env.MOCK_FOLDER || "./mock";
-
-export const APP_PORT = process.env.APP_PORT || 8080;
+export const APP_PORT = process.env.APP_PORT || 3000;
 export const ORIGIN = process.env.ORIGIN || "*";
 CacheManager.default = cacheHandler
 
@@ -34,8 +29,5 @@ app.use(
         credentials: true,
     })
 )
-
-// app.use(errorHandler);
-// app.use(rateLimiter);
 
 export default app

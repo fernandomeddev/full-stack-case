@@ -9,7 +9,6 @@ export async function userSignupService(user: IUserSignup): Promise<IResult<User
     }
     const userData: UserDto = {
         id: '',
-        userAlias: '',
         name: user.name,
         email: user.email,
         hashedPassword: user.password,

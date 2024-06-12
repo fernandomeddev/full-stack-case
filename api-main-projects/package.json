@@ -7,10 +7,11 @@
   "author": "fhlmedeiros <fernando.medeiros@blockbr.com.br>",
   "license": "MIT",
   "scripts": {
-    "test": "vitest",
+    "build": "yarn clean && tsc",
+    "clean": "rimraf dist/",
     "start:dev": "nodemon src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "tsc && node ./dist/server.js",
+    "test": "vitest"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.6",
