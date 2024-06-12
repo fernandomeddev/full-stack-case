@@ -5,7 +5,6 @@ import mockJson from 'express-middleware-mock';
 
 const app = express()
 app.use(appConfig)
-// app.use(mongoConnection)
 
 app.use('/api', routes)
 
