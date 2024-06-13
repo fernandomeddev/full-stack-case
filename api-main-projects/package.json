@@ -1,6 +1,6 @@
 {
   "name": "full-stack-case",
-  "version": "1.0.0",
+  "version": "0.2.4",
   "description": "Main Api Projects",
   "main": "server.js",
   "repository": "git@github.com:fernandomeddev/full-stack-case.git",
@@ -11,7 +11,12 @@
     "clean": "rimraf dist/",
     "start:dev": "nodemon src/server.ts",
     "start": "tsc && node ./dist/server.js",
-    "test": "vitest"
+    "test": "vitest",
+    "docker:up": "docker-compose up --build",
+    "docker:down": "docker-compose down",
+    "docker:restart": "docker-compose down && docker-compose up --build",
+    "mongo:up": "docker-compose up -d mongo",
+    "mongo:down": "docker-compose down -v mongo"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.6",

@@ -1,7 +1,7 @@
 import express from 'express';
-import userPublicRoutes from '../public/user/userPublicRoutes'
+import userPublicRoutes from './login/loginRoutes'
 
 const app = express();
-app.use('/user', userPublicRoutes );
+app.use('/auth', userPublicRoutes );
 
 export default app;

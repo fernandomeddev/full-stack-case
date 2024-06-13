@@ -1,8 +1,8 @@
 export interface UserDto {
-    id: string;
+    id?: string;
     name: string;
     email: string;
-    hashedPassword: string;
+    hashedPassword?: string;
     createdAt: Date;
     updatedAt: Date;
     deletedAt?: Date;

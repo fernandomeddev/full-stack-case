@@ -8,4 +8,12 @@ export default class UserRepository extends BaseCrud<UserDto> {
     const instanse = Singleton.getInstance('UserRepository', UserRepository, 'tb_users', dbName)
     return instanse
   }
+
+  public async findByEmail(email: string): Promise<UserDto | undefined> {
+    const records: UserDto[] = await this.findAll({ email });
+    if (records.length === 0) {
+      return undefined;
+    }
+    return records[0];
+  }
 }

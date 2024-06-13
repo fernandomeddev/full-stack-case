@@ -9,4 +9,4 @@ export const validationSchema = z.object({
     message: 'Passwords do not match',
     path: ['confirmPassword'], // Reporta o erro no campo confirmPassword;
 })
-export type IUserSignup = z.infer<typeof validationSchema>;
+export type IUserRegister = z.infer<typeof validationSchema>;

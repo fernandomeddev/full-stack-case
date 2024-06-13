@@ -29,9 +29,8 @@ Certifique-se de ter o seguinte instalado:
    git clone git@github.com:fernandomeddev/full-stack-case.git
    
 
-## Executando a Aplicação
+## Executando a Aplicação Localmente
 1. Instale as dependências:
-
    ```sh
    yarn install
 
@@ -52,13 +51,13 @@ O servidor estará em execução em http://localhost:3000.
 4. Construa e inicie os contêineres Docker:
 
    ```sh
-   docker-compose up --build
+   yarn docker:up
 
 Este comando irá construir a imagem Docker para a aplicação e iniciar os serviços da aplicação e do MongoDB.
 
 5. Para parar e remover os contêineres:
    ```sh
-   docker-compose down
+   yarn docker:down
 
 6. A aplicação estará acessível em http://localhost:3000 e o MongoDB estará acessível em mongodb://localhost:27017/full-stack-case.
 
