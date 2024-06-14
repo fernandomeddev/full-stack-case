@@ -8,10 +8,14 @@ export async function auth(request: Request, response: Response, next: NextFunct
             return response.status(401).json({ message: 'Access Denied' });
         }
         const verified = verifyToken(token);
-        if (!verified) {
+        if (!verified.id) {
             return response.status(401).json({ message: 'Access Denied' });
         }
-        request.user = verified
+        const user = {
+            id: verified.id,
+            name: verified.name
+        }
+        request.user = user;
         next();
     } catch (error) {
         response.status(500).json({ message: 'auth: internal server error try again later ' }); 

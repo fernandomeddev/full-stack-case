@@ -6,7 +6,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - MONGO_URL=mongodb://mongo:27017/full-stack-case
+      - MONGO_URL=mongodb://mongo:27017/app_poduct_manager_bko
     depends_on:
       - mongo
     volumes:
