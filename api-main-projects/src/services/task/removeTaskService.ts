@@ -8,20 +8,13 @@ export async function removeTaskService(taskId: string): Promise<IResult<null>> 
     if (!task) {
         return {
             success: false,
-            messages: ['Task not found']
+            messages: ['Tarefa não encontrada.']
         }
     }
-
-    const taskRemoved = await taskRepository.delete(taskId);
-    if (!taskRemoved) {
-        return {
-            success: false,
-            messages: ['Não foi possível remover a tarefa. Tente novamente.']
-        }
-    }
-
+    await taskRepository.delete(taskId);
+    
     return {
         success: true,
-        data: null
+        messages: [`Tarefa ${task.title}, Removida com sucesso`],
     }
 }

@@ -16,7 +16,7 @@ export async function userSigninController(request: Request, response: Response)
         }
         return response.status(200).send(responseService);
     } catch (error) {
-        console.log(`server error on route get url/ :: ${error}`)
+        console.log(`server error on route post user/signin :: ${error}`)
         return response.status(500).send('internal server error')
     }
 }

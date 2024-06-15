@@ -15,7 +15,6 @@ export class TaskRepository extends BaseCrud<TaskDto> {
         if (records.length === 0) {
             return undefined;
         }
-        console.log(records[0]);
         return records[0];
     }
 

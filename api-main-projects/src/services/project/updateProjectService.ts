@@ -1,8 +1,7 @@
-import { DocumentWithId } from "mongo-base-crud";
 import { ProjectDto } from "../../dtos/ProjectDto";
 import { IResult } from "../../interfaces/IResult";
 import { ProjectRepository } from "../../repository/projectRepository";
-import { INewProject } from "../../validationSchemas/newProject.schema";
+import { INewProject } from "../../validationSchemas/project.schema";
 import { IProject } from "../../interfaces/IProject";
 
 export async function updateProjectService(projectId: string, modifications: INewProject): Promise<IResult<IProject | null>>{
@@ -11,22 +10,20 @@ export async function updateProjectService(projectId: string, modifications: INe
     if (!project) {
         return {
             success: false,
-            data: null,
-            messages: ['Project not found']
+            messages: ['Projeto não encontrado.']
         }
     }
 
     const updatedData: ProjectDto = {
         ...project,
+        ...modifications,
         updatedAt: new Date(),
-        ...modifications
     }
     
     const projectUpdated = await projectRepository.save(updatedData);
     if (!projectUpdated.id) {
         return {
             success: false,
-            data: null,
             messages: ['Não foi possível atualizar o projeto. Tente novamente.']
         }
     }     

@@ -12,7 +12,7 @@ export async function removeProjectController(request: Request, response: Respon
         
         return response.status(200).send(responseService);
     } catch (error) {
-        console.log(`server error on route get url/ :: ${error}`);
+        console.log(`server error on route delete project/remove/:id :: ${error}`);
         return response.status(500).send("internal server error");
     }
 }

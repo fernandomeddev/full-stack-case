@@ -9,12 +9,12 @@ export class ProjectRepository extends BaseCrud<ProjectDto> {
         return instance
     }
 
-    public async findByName(name: string): Promise<ProjectDto | undefined> {
-        const records: ProjectDto[] = await this.findAll({ name });
+    //Opcao de busca por alias
+    public async findByAlias(projectAlias: string): Promise<ProjectDto | undefined> {
+        const records: ProjectDto[] = await this.findAll({ projectAlias });
         if (records.length === 0) {
             return undefined;
         }
-        console.log(records[0]);
         return records[0];
     }
 

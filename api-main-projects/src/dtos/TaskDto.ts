@@ -2,9 +2,10 @@
 export interface TaskDto {
     id?: string;
     projectId: string;
+    taskAlias: string;
     title: string;
     description: string;
-    status: string; // Acrescentei status da tarefa como interface
+    status: 'pending' | 'completed'
     createdBy: string; // Acrescentei usuário que criou a tarefa 
     createdAt: Date;
     updatedAt?: Date;

@@ -10,7 +10,7 @@ export async function listProjectController(request: Request, response: Response
        
         return response.status(200).send(responseService);
     } catch (error) {
-        console.log(`server error on route get url/ :: ${error}`);
+        console.log(`server error on route get project/list :: ${error}`);
         return response.status(500).send("internal server error");
     }
 }

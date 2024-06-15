@@ -9,7 +9,7 @@ export async function listProjectsService(userId: string): Promise<IResult<IProj
         return {
             success: false,
             data: null,
-            messages: ['Este usuário não possui nenhum projeto criado.']
+            messages: ['Este usuário ainda não possui nenhum projeto criado.']
         }
     }
     return {

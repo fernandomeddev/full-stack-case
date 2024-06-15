@@ -9,7 +9,7 @@ export async function listTasksService(projectId: string): Promise<IResult<ITask
         return {
             success: false,
             data: null,
-            messages: ['Não foi possível encontrar tarefas para este projeto.']
+            messages: ['Esse projeto não possui tarefas.']
         }
     }
     return {

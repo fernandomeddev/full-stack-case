@@ -3,8 +3,8 @@ import { removeTaskService } from "../../services/task/removeTaskService";
 
 export async function removeTaskController(request: Request, response: Response) {
     try {
-        const projectId: string  = request.params.id;
-        const responseService = await removeTaskService(projectId);
+        const taskId: string  = request.params.id;
+        const responseService = await removeTaskService(taskId);
 
         if (!responseService.success) {
             return response.status(400).send(responseService.messages);
@@ -12,7 +12,7 @@ export async function removeTaskController(request: Request, response: Response)
         
         return response.status(200).send(responseService);
     } catch (error) {
-        console.log(`server error on route get url/ :: ${error}`);
+        console.log(`server error on route delete task/remove/:id :: ${error}`);
         return response.status(500).send("internal server error");
     }
 }
