@@ -4,12 +4,12 @@ import { ProjectRepository } from "../../repository/projectRepository";
 
 export async function listProjectsService(userId: string): Promise<IResult<IProject[] | null>>   {
     const projectRepository = ProjectRepository.instance();
-    const projects: IProject[] = await projectRepository.findAll({ userId });
-    if (!projects) {
+    const projects: IProject[] = await projectRepository.findAll({ createdBy: userId });
+    if (projects.length === 0 || !projects) {
         return {
             success: false,
             data: null,
-            messages: ['Error fetching projects']
+            messages: ['Este usuário não possui nenhum projeto criado.']
         }
     }
     return {

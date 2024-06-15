@@ -1,11 +1,12 @@
 import { BaseCrud } from "mongo-base-crud";
 import { Singleton } from "typescript-singleton";
 import { ProjectDto } from "../dtos/ProjectDto";
+import { TaskDto } from "../dtos/TaskDto";
 
 const dbName = process.env.DB_NAME || 'app_poduct_manager_bko'
-export class ProjectRepository extends BaseCrud<ProjectDto> {
+export class TaskRepository extends BaseCrud<TaskDto> {
     static instance() {
-        const instance = Singleton.getInstance('ProjectRepository', ProjectRepository, 'projects', dbName)
+        const instance = Singleton.getInstance('TaskRepository', TaskRepository, 'tasks', dbName)
         return instance
     }
 
@@ -26,4 +27,5 @@ export class ProjectRepository extends BaseCrud<ProjectDto> {
         const project = records[0];
         return project
     }
+
 }

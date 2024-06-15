@@ -5,4 +5,6 @@ export interface ProjectDto {
     description: string;
     createdBy: string;
     createdAt?: Date;
+    updatedAt?: Date;
+    deletedAt?: Date;
 }

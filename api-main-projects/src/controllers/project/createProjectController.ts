@@ -6,17 +6,13 @@ import { validationSchema } from "../../validationSchemas/newProject.schema";
 export async function createProjectController(request: Request, response: Response) {
     try {
         const validate = validationSchema.safeParse(request.body);
-        console.log(request.user)
         if (validate.error) return response.status(400).send({errors: validate.error?.errors});
-        const userId: string  = request.user?.id;
-        if (!userId) return response.status(401).send('Unauthorized');
 
         const dataProject: IProject = {
             name: request.body.name,
             description: request.body.description,
-            createdBy: userId,
+            createdBy: request.user.id,
         }
-
         const responseService = await createProjectService(dataProject);
         if (!responseService.success) return response.status(400).send(responseService.messages);
 
